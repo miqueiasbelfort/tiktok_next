@@ -9,7 +9,7 @@ function Layout({children}) {
             <Header></Header>
             <Container>
                 <SideBarContainer>
-                    <Sidebar></Sidebar>
+                    <Sidebar/>
                 </SideBarContainer>
                 <ContentContainer>
                     {children}

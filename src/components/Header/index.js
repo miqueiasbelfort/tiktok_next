@@ -1,9 +1,11 @@
+import Image from "next/image"
 import {
     Container, 
     LogoContainer, 
     LogoIcon,
     Content, 
-    Logo, OptionsContainer, 
+    Logo, 
+    OptionsContainer, 
     Icon, 
     Avatar
 } from "./styles"
@@ -13,13 +15,20 @@ function Header(){
         <Container>
             <Content>
                 <LogoContainer>
-                    <LogoIcon/>
-                    <Logo></Logo>
+                    <LogoIcon src="/images/logoIcon.svg"></LogoIcon>
+                    <Logo src="/images/logo.svg"></Logo>
                 </LogoContainer>
 
                 <OptionsContainer>
-                    <Icon></Icon>
-                    <Avatar></Avatar>
+                    <Icon src="/images/uploadicon.svg"></Icon>
+                    <Avatar>
+                        <Image 
+                            src="/images/me(1).jpg" 
+                            alt="User"
+                            width="40px"
+                            height="40px"
+                        />
+                    </Avatar>
                 </OptionsContainer>
             </Content>
         </Container>
