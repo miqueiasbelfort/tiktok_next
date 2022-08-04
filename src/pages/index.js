@@ -1,9 +1,15 @@
 import Layout from "../components/Layouts"
 
-function Index() {
+import Feed from "../components/Feed"
+import Suggestions from "../components/Seggestions"
+
+function Index({posts = []}) {
     return (
         <Layout>
-            Feed
+            <Feed
+                posts={posts}
+            ></Feed>
+            <Suggestions></Suggestions>
         </Layout>
     )
 }
