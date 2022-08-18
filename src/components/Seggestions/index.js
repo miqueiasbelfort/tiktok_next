@@ -14,9 +14,9 @@ function Suggestions(){
         <Container>
 
         <IconsContainer>
-            <Icon src=""></Icon>
-            <Icon src=""></Icon>
-            <Icon src=""></Icon>
+            <Icon src="/images/fecebookIcon.svg"></Icon>
+            <Icon src="/images/pinterestIcon.svg"></Icon>
+            <Icon src="/images/twitterIcon.svg"></Icon>
         </IconsContainer>
 
         <BoxContainer>
@@ -26,7 +26,7 @@ function Suggestions(){
             <ItenContainer>
                 {people.map((person, index) => (
                     <Item>
-                        <User user={person}></User>
+                        <User key={index} user={person}></User>
                         <Button fontSize={14} outlined>Seguir</Button>
                     </Item>
                 ))}
@@ -41,15 +41,19 @@ function Suggestions(){
 
             {itens.map((item, index) => (
                     <Item>
-                        <User user={item}></User>
-                        <Button fontSize={14} outlined>Seguir</Button>
+                        <RecomendedCard key={index} recomended={item}/>
+                        <ArrowIcon></ArrowIcon>
                     </Item>
             ))}
 
             </ItenContainer>
         </BoxContainer>
-
+            
+        <DownloadImage src="/images/appstore.png"></DownloadImage>
+        <DownloadImage src="/images/playstore.png"></DownloadImage>
+        <DownloadImage src="/images/amazon.png"></DownloadImage>
 
         </Container>
     )
 }
+export default Suggestions

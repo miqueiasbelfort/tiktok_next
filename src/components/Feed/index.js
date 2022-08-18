@@ -13,3 +13,4 @@ function Feed({posts}){
         </Container>
     )
 }
+export default Feed
