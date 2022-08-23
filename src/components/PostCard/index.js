@@ -1,3 +1,4 @@
+import {useRef, useState} from "react"
 import {
     Container,
     Header,
@@ -18,9 +19,22 @@ import {
     ButtonContainer
 } from "./style"
 import Button from "../Button"
+import Image from "next/image"
 
 
 function PostCard({post}){
+
+    const videRef = useRef()
+    const [running, setRunning] = useState(false)
+
+    const toggleAction = () => {
+        if(videRef?.current != null){
+            if(!running) videRef.current.play()
+            else videRef.current.pause()
+            setRunning(!running)
+        }
+    }
+
     return(
         <Container>
             <Header>
@@ -43,11 +57,12 @@ function PostCard({post}){
             </Header>
             <Content>
                 <Song>
-                    <img src="/images/songIcon.svg" alt="" />
+                    <Image src="/images/songIcon.svg" alt="" width={50} height={50} />
                     <a>{post?.songName}</a>
                 </Song>
                 <VideoContainer>
                     <Video 
+                        ref={videRef}
                         src={post?.videoURL}
                         webkit-playsinline="true"
                         playsinline=""
@@ -55,22 +70,22 @@ function PostCard({post}){
                         preload='metadata'
                     ></Video>
                     <ActionsContainer>
-                        <PlayerIcon src="/images/playIcon.svg"></PlayerIcon>
+                        <PlayerIcon onClick={toggleAction} src={running ? "/images/pauseIcon.svg" : "/images/playIcon.svg"}></PlayerIcon>
                     </ActionsContainer>
                 </VideoContainer>
             </Content>
             <Actions>
                 <Action>
-                    <img src="" alt="" />
-                    <a></a>
+                    <Image src="/images/heartIcon.svg" alt="" width={50} height={50}/>
+                    <a>{post?.likes}</a>
                 </Action>
                 <Action>
-                    <img src="" alt="" />
-                    <a></a>
+                    <Image src="/images/bubbleIcon.svg" alt="" width={50} height={50}/>
+                    <a>{post?.comments}</a>
                 </Action>
                 <Action>
-                    <img src="" alt="" />
-                    <a></a>
+                    <Image src="/images/arrowIcon.svg" alt="" width={50} height={50}/>
+                    <a>{post?.replices}</a>
                 </Action>
             </Actions>
         </Container>
